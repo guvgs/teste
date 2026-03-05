@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Me Abra 💌</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: radial-gradient(circle at top, #ffe1ec, #fff6fa);
+    color: #b55473;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    text-align: center;
+    padding: 22px;
+    background: linear-gradient(135deg, #f4b6c2, #f7c6d5);
+    color: white;
+    font-size: 26px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    box-shadow: 0 6px 20px rgba(199, 101, 131, 0.35);
+}
+
+main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.envelope-container {
+    width: 330px;
+    height: 240px;
+    perspective: 1400px;
+}
+
+.envelope {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(145deg, #ffe6ee, #ffd3e0);
+    border-radius: 16px;
+    box-shadow: 0 25px 50px rgba(199, 101, 131, 0.35);
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.flap {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 55%;
+    background: linear-gradient(135deg, #f4b6c2, #f0a9bd);
+    clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
+    transform-origin: top;
+    transition: transform 1s ease;
+    z-index: 3;
+}
+
+.envelope.open .flap {
+    transform: rotateX(-120deg);
+}
+
+.letter {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 92%;
+    height: 88%;
+    background: #fff;
+    border-radius: 14px;
+    transform: translateX(-50%) translateY(100%);
+    transition: transform 1s ease;
+    padding: 18px;
+    text-align: center;
+    overflow-y: auto;
+    z-index: 2;
+}
+
+.envelope.open .letter {
+    transform: translateX(-50%) translateY(0);
+}
+
+.letter-content {
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.hint {
+    margin-top: 18px;
+    font-size: 13px;
+    opacity: 0.7;
+}
+
+footer {
+    text-align: center;
+    padding: 14px;
+    background: rgba(244, 182, 194, 0.9);
+    color: white;
+    font-size: 14px;
+}
+
+/* escondido */
+audio {
+    display: none;
+}
+</style>
+</head>
+
+<body>
+
+<header>me abra 💌</header>
+
+<main>
+    <div class="envelope-container">
+        <div class="envelope" id="envelope" onclick="toggleEnvelope()">
+            <div class="flap"></div>
+
+            <div class="letter">
+                <div class="letter-content">
+                    ✨ feliz aniversário dudu ✨<br><br>
+                    enquanto eu escrevia todo o código da página, pensei que a parte de escrever esse textinho seria a mais fácil, mas acabou sendo a mais difícil, por que eu queria que tudo ficasse perfeito.
+essa é só uma pequena demonstração do quanto eu gosto de você, mesmo que hoje seja o seu aniversário, eu também me sinto presenteado por ter você comigo.
+obrigado por ser o meu melhor amigo, o meu irmão, e por tanto tempo aguentar todas as minhas bobagens. ter a sua companhia (mesmo que apenas por mensagens ou, às vezes, em call) todos os dias me deixa muito feliz e grato mesmo, quando eu estou passando por momentos dificies ter você comigo, mesmo que você não saiba oq eu estou passando, me ajuda muito. continue sendo a otima pessoa que você é, amo tudo em você, seu jeito de ser, sua risada, sua personalidade. obrigado por completar todos os meus dias com sua presença nele, so tenho a te agradecer por ser o melhor melhor amigo do mundo.
+feliz aniversário dudu, te amo demais príncipe <3
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="hint">clique no envelope para abrir</div>
+</main>
+
+<footer>te amo dudu, feliz aniversário 💕</footer>
+
+<!-- 🎵 MÚSICA -->
+<audio id="music" loop>
+    <source src="musica.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+function toggleEnvelope() {
+    const envelope = document.getElementById("envelope");
+    const music = document.getElementById("music");
+
+    envelope.classList.toggle("open");
+
+    if (music.paused) {
+        music.volume = 0.5;
+        music.play();
+    }
+}
+</script>
+
+</body>
+</html>
